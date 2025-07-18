@@ -205,3 +205,9 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# coustom additions
+#  Add any custom files or directories you want to ignore here.
+#  For example, if you have a local configuration file that should not be shared:
+# local_config.py
+icsenv/

@@ -110,10 +110,22 @@ Visit `http://localhost:7860`
 # Test & Push to Git
 ```bash
 python tests/test_app.py
+
+
+# Now start pushing to git
 git init
 git remote add origin https://github.com/YOUR_USERNAME/threat_hunter_agent.git
 git add .
 git commit -m "Initial commit with CI"
+git pull origin main --rebase
+git push -u origin main
+
+# Avoid large files, put them in gitignore
+touch .gitignore #open in editor
+ icsenv/ # add this line in gitignore file
+git rm -r --cached icsenv/ #Remove Already Tracked Virtual Environment
+git commit -m "Remove virtual environment from version control"
+git pull origin main --rebase
 git push -u origin main
 
 ---
