@@ -46,7 +46,7 @@ Built using LangChain's agent framework and served through a lightweight Gradio 
 
 The diagram below shows the internal architecture of the ICS Incident Response Assistant and how it processes queries using an agentic LLM pipeline.
 
-![Agentic Workflow](assets/system.jpg)
+![Agentic Workflow](assets/system.png)
 
 #### Workflow Breakdown:
 
@@ -202,13 +202,13 @@ Example prompts:
 ### LLM Output
 
 **1. Search Interface**  
-![Search View](assets/search_incident.jpg)
+![Search View](assets/search_incident.png)
 
 **2. Response Planner Output**  
-![Response Planner](assets/responder_plan.jpg)
+![Response Planner](assets/responder_plan.png)
 
 **3. Summary Example (Triton ICS)**  
-![Summarizer](assets/summarizer_view.jpg)
+![Summarizer](assets/summarizer_view.png)
 
 ---
 
