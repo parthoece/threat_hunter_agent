@@ -46,7 +46,7 @@ Built using LangChain's agent framework and served through a lightweight Gradio 
 
 The diagram below shows the internal architecture of the ICS Incident Response Assistant and how it processes queries using an agentic LLM pipeline.
 
-![Agentic Workflow](assets/system.png)
+<img src="assets/system.png" alt="Agentic Workflow" width="600">
 
 #### Workflow Breakdown:
 
@@ -128,6 +128,24 @@ git commit -m "Remove virtual environment from version control"
 git pull origin main --rebase
 git push -u origin main
 
+# Troubleshoot to ignore large files
+git status
+# Clean it with:
+git restore .DS_Store     # Or any modified file
+
+# Run git filter-branch to delete the large file from history
+git filter-branch --force --index-filter \
+  "git rm --cached --ignore-unmatch icsenv/lib/python3.9/site-packages/torch/lib/libtorch_cpu.dylib" \
+  --prune-empty --tag-name-filter cat -- --all
+
+# Clean up dangling history
+rm -rf .git/refs/original/
+git reflog expire --expire=now --all
+git gc --prune=now --aggressive
+
+git push --force origin main
+
+
 ---
 
 ## Kubernetes + EC2 Deployment
@@ -202,13 +220,14 @@ Example prompts:
 ### LLM Output
 
 **1. Search Interface**  
-![Search View](assets/search_incident.png)
+<img src="assets/search_incident.png" alt="Search View" width="600">
 
 **2. Response Planner Output**  
-![Response Planner](assets/responder_plan.png)
+<img src="assets/responder_plan.png" alt="Response Planner" width="600">
 
 **3. Summary Example (Triton ICS)**  
-![Summarizer](assets/summarizer_view.png)
+<img src="assets/summarizer.png" alt="Summarizer" width="600">
+
 
 ---
 
