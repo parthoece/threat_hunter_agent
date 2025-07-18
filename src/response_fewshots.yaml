@@ -1,0 +1,437 @@
+SearchIncidents:
+  - input: Have there been any ICS incidents involving abnormal Modbus function codes or command injection over TCP port 502?
+    answer: |
+      Yes, several ICS attacks have involved unauthorized Modbus function codes. For example, attackers have used function code 0x10 (Write Multiple Registers) to manipulate PLC behavior over TCP port 502. In one case, a water treatment plant suffered logic corruption due to malicious Modbus packets. These attacks typically bypass authentication and target unsecured ICS networks.
+
+  - input: Are there any documented attacks that altered boundary function logic in PLCs or bypassed safety interlocks in ICS?
+    answer: |
+      Yes, the Triton malware attack in 2017 is a prime example. It targeted Triconex SIS controllers to disable boundary logic and safety interlocks. The attackers modified function logic using remote access and tried to mask changes with legitimate-looking code. This demonstrates how altering boundary functions can lead to unsafe ICS conditions.
+
+  - input: Are there known ICS attacks involving malicious Modbus function codes?
+    answer: |
+      Yes. In several ICS cyber incidents, attackers abused Modbus function codes to cause harm. For example, malicious actors used Function Code 5 (Write Single Coil) and Function Code 6 (Write Single Register) to overwrite PLC logic or manipulate actuator states. These were seen in attacks targeting water treatment and manufacturing facilities.
+
+  - input: Have attackers exploited DNP3 protocol in ICS environments?
+    answer: |
+      Yes. DNP3, especially when used without secure authentication, has been exploited to send unsolicited responses and abnormal command packets. In one power grid intrusion, adversaries crafted DNP3 commands to trigger false relay operations, which disrupted grid stability.
+
+  - input: Any incidents where ICS protocol changes indicated compromise?
+    answer: |
+      There have been multiple cases where sudden shifts in ICS protocol behavior signaled compromise. For instance, a sudden increase in Modbus write commands or the appearance of CIP messages on normally Modbus-only segments have preceded ransomware or backdoor installation events.
+
+  - input: Have ICS breaches involved unexpected use of IEC-104?
+    answer: |
+      Yes. Attackers have been observed using IEC 60870-5-104 to send abnormal ASDUs to RTUs. These messages were used to simulate command acknowledgments or cause false control events in electric substations.
+
+  - input: Were there cyberattacks that used custom or unknown ICS protocol functions?
+    answer: |
+      In some advanced attacks, adversaries crafted malformed or non-standard ICS protocol packets to exploit undocumented functions or cause device crashes. These have been observed in protocol fuzzing attacks on legacy PLCs.
+
+  - input: Have Modbus scans or write spikes preceded real ICS attacks?
+    answer: |
+      Yes. Modbus write spikes—particularly multiple FC6 (Write Single Register) and FC16 (Write Multiple Registers)—have often been early indicators of malicious activity. Attackers use them to overwrite setpoints or disable alarms before launching ransomware or destructive payloads.
+
+
+  - input: Have there been any ICS attacks involving phishing that led to unauthorized access?
+    answer: |
+      Yes, several ICS-related incidents involved phishing as an initial access vector. For example, the 2017 Triton attack likely involved spear-phishing to gain a foothold in the network. In other cases, phishing emails targeting IT personnel were used to steal credentials, which were then leveraged to access SCADA or ICS systems, especially in the energy and manufacturing sectors.
+
+  - input: List examples of ransomware incidents that disrupted ICS production lines.
+    answer: |
+      - In 2019, Norsk Hydro's aluminum production lines were disrupted by LockerGoga ransomware, impacting ICS operations across Europe and the U.S.
+      - In 2021, the Colonial Pipeline ransomware incident caused the shutdown of fuel distribution across the U.S. East Coast, affecting ICS indirectly.
+      - Honda (2020) suffered operational disruption due to Snake/EKANS ransomware targeting ICS communication protocols and systems.
+
+  - input: What happened during the Triton ICS malware attack?
+    answer: |
+      The Triton malware targeted safety instrumented systems (SIS) in a Middle Eastern petrochemical facility. It specifically attacked Schneider Electric's Triconex safety controllers, attempting to manipulate safety logic and disable safeguards. The attack was attributed to a state-sponsored actor and marked the first known malware designed to impact safety systems.
+
+  - input: Any major incidents affecting PLCs in water utilities?
+    answer: |
+      Yes, in 2021 an incident occurred in Oldsmar, Florida, where an attacker gained remote access to a water treatment plant's SCADA system and tried to increase the sodium hydroxide (lye) levels. Though caught in time, this demonstrated the vulnerability of PLC-controlled systems in water utilities to remote compromise.
+
+  - input: What is the impact of external actors in SCADA breaches?
+    answer: |
+      External actors—especially advanced persistent threat (APT) groups—have been involved in SCADA breaches that result in espionage, sabotage, or disruption. These breaches can lead to physical consequences like shutdown of industrial processes, manipulation of critical infrastructure, and damage to public safety and economic stability.
+
+Summarizer:
+  - input: Summarize the Triton malware attack on industrial safety systems.
+    answer: |
+      The Triton malware (a.k.a. Trisis) targeted a petrochemical facility in the Middle East in 2017. It specifically attacked Schneider Electric's Triconex Safety Instrumented System (SIS) via a Windows-based engineering workstation.
+      
+       **Kill Chain Mapping**:
+      - Recon: External actor scoped OT network and engineering access.
+      - Weaponization: Malware payload crafted to interact with Triconex protocols.
+      - Delivery: Compromised Windows host via phishing or credential reuse.
+      - Exploitation: Leveraged a zero-day in SIS firmware interaction logic.
+      - Installation: Dropped and injected code into the SIS logic runtime.
+      - C2: Likely air-gapped; relied on lateral engineering tools.
+      - Actions: Attempted to overwrite safety logic, possibly for sabotage.
+
+      The malware’s ability to disable physical safety mechanisms elevated it to one of the most dangerous ICS threats ever discovered.
+
+  - input: Give a quick overview of the 2015 Ukraine power grid ICS attack.
+    answer: |
+      In December 2015, Ukraine suffered a coordinated cyberattack against its power grid. Hackers used spear phishing to compromise corporate IT networks, then pivoted into the OT environment.
+
+       **Kill Chain Mapping**:
+      - Recon: Attackers profiled grid operators and harvested credentials.
+      - Delivery: Office macros and BlackEnergy malware via phishing emails.
+      - Exploitation: Remote access tools (RATs) used to access HMI terminals.
+      - Actions: Manual shutdown of substations using legitimate SCADA interfaces.
+
+      Notably, the attackers also deployed KillDisk wiper malware to delay recovery and launched telephone DDoS attacks to obstruct incident reporting. This event marked one of the first publicly confirmed cyberattacks to cause real-world power outages.
+
+  - input: Summarize the ransomware attack on Norsk Hydro's ICS environment.
+    answer: |
+      Norsk Hydro was hit by the LockerGoga ransomware in 2019, which spread from IT to OT environments. The ransomware encrypted files on Windows machines across the company, disrupting aluminum production lines.
+
+       **Technical Notes**:
+      - The attack started in IT, using domain credentials to move laterally.
+      - ICS systems were impacted due to weak segmentation between IT and OT.
+      - Some plants switched to manual operations for over a week.
+      - The malware lacked C2 and operated as a destructive wiper in some subsystems.
+
+      Norsk Hydro responded transparently, refusing to pay ransom and using backups for recovery, setting an example for industrial resilience.
+
+  - input: Summarize a critical infrastructure phishing incident with ICS implications.
+    answer: |
+      A U.S. water utility experienced an ICS compromise after an employee clicked a phishing link in 2020. The initial payload deployed a PowerShell backdoor, allowing remote attackers to navigate from IT to OT networks.
+
+       **Technical Summary**:
+      - Phishing vector delivered an obfuscated PowerShell script.
+      - Attackers scanned ICS hosts for exposed HMIs and used RDP to pivot.
+      - They attempted to manipulate setpoints on chlorine and pH control logic.
+
+      Fortunately, anomaly-based monitoring systems detected the change in operator behavior, and emergency controls prevented harmful actions.
+
+  - input: Summarize a case where attackers abused Modbus for sabotage.
+    answer: |
+      In a simulated Red Team assessment at a gas distribution facility, attackers abused unsecured Modbus TCP to overwrite control register values on remote RTUs.
+
+       **Attack Flow**:
+      - No authentication on Modbus over TCP/502.
+      - Function Code 6 (Write Single Register) used to alter flow pressure thresholds.
+      - Lack of network segmentation allowed traversal from IT VLAN.
+
+      The incident showed how legacy protocols like Modbus, when unprotected, can lead to unauthorized and dangerous process modifications.
+
+  - input: Summarize a recent supply chain compromise affecting industrial firmware.
+    answer: |
+      A 2021 firmware supply chain breach involved attackers injecting malicious code into ICS vendor firmware images distributed via update servers.
+
+       **Attack Analysis**:
+      - Compromise occurred at the vendor CI/CD pipeline level.
+      - Signed firmware included logic to beacon over DNS to attacker infrastructure.
+      - Affected devices included RTUs and field control gateways.
+
+      The breach highlighted the risks of firmware trust and the need for secure SBOM (Software Bill of Materials) practices in ICS.
+
+  - input: Provide a kill chain breakdown for a known SCADA-targeting malware.
+    answer: |
+      **Stuxnet** is a textbook example of a kill chain in ICS malware:
+
+      - Recon: Harvested Siemens Step7 project files.
+      - Weaponization: Used multiple zero-day exploits.
+      - Delivery: Infected USB drives and network shares.
+      - Exploitation: Escalated privileges via LNK vulnerability.
+      - Installation: Deployed rootkits on PLCs and Windows hosts.
+      - C2: Minimal or no external C2; relied on logic triggers.
+      - Actions: Modified centrifuge spin cycles, causing physical damage.
+
+      Stuxnet demonstrated how malware could precisely target ICS logic without human interaction.
+
+  - input: Summarize the Triton malware attack on industrial safety systems.
+    answer: |
+      The Triton malware attack, discovered in 2017, targeted the Triconex SIS controllers in a petrochemical plant in the Middle East. The attackers intended to disable safety systems to cause potential harm or enable a future destructive attack. This marked the first known instance of malware directly targeting safety instrumented systems.
+
+  - input: Give a quick overview of the 2015 Ukraine power grid ICS attack.
+    answer: |
+      In December 2015, attackers used BlackEnergy malware to compromise IT and OT networks of Ukrainian power companies. They remotely switched off substations, causing power outages for 225,000 citizens. It was the first confirmed cyberattack to disrupt a power grid using coordinated SCADA system manipulation.
+
+  - input: Summarize the ICS incident involving Norsk Hydro.
+    answer: |
+      In 2019, Norsk Hydro was hit by LockerGoga ransomware, which affected both its IT and ICS environments. Aluminum production lines were halted, and the company had to shift to manual operations. Despite the disruption, Norsk Hydro maintained transparency, providing regular public updates and refusing to pay the ransom.
+
+  - input: Give a short summary of a power grid ransomware attack.
+    answer: |
+      A ransomware attack on the Colonial Pipeline in 2021 forced operators to shut down fuel distribution temporarily to contain the impact. Although ICS systems were not encrypted directly, the fear of lateral movement caused operational disruption. It highlighted the interdependency of IT and ICS networks.
+
+  - input: Summarize a critical infrastructure phishing incident.
+    answer: |
+      In 2013, the Havex campaign used phishing emails to deliver Remote Access Trojans (RATs) to energy sector targets. The attackers compromised ICS vendor software and phishing messages to infiltrate critical infrastructure networks, allowing them to gather intelligence and map industrial control systems.
+  
+  - input: Summarize a real ICS incident where attackers used unauthorized Modbus writes or DNP3 protocol abuse.
+    answer: |
+      In 2019, a suspected cyberattack targeted a power distribution facility using unauthorized Modbus function codes. The attackers sent repeated 0x06 write commands to alter PLC setpoints. Additionally, abnormal DNP3 packets were logged with unsupported function codes, leading to protective relay misconfigurations. The attack highlighted the need for protocol whitelisting and real-time alerting.
+
+  - input: Summarize a kill chain scenario where boundary logic in a chemical plant PLC was manipulated via protocol abuse.
+    answer: |
+      An adversary gained access via phishing, then moved laterally to the ICS network. They used Modbus over TCP to push unauthorized logic updates to a chemical plant’s boundary PLCs. This allowed bypassing of interlocks that regulate pressure valves. The kill chain involved initial access, credential harvesting, internal reconnaissance, and logic injection. MALCOLM later confirmed abnormal function code usage and unauthorized changes to ladder logic.
+
+ResponderPlanner:
+  - input: What should I do if an attacker exfiltrates ICS sensor data?
+    answer: |
+      - Immediately isolate the compromised network segment.
+      - Initiate your incident response plan and notify ICS SOC teams.
+      - Identify the data exfiltration path and shut down outbound connections.
+      - Conduct forensic analysis to determine the scope of data loss.
+      - Notify legal/compliance teams for regulatory considerations.
+      - Implement tighter network segmentation, DLP tools, and review firewall rules.
+
+  - input: How do I isolate an infected ICS HMI during a malware outbreak?
+    answer: |
+      - Physically disconnect the HMI from the ICS network.
+      - Disable remote access, USB ports, and wireless interfaces.
+      - Notify operations and incident response teams immediately.
+      - Preserve forensic evidence with a disk image.
+      - Replace the infected HMI with a clean backup if available.
+      - Review network logs for lateral movement or persistence mechanisms.
+
+  - input: What steps should I take after detecting malware in ICS?
+    answer: |
+      - Contain the infection by segmenting or isolating affected nodes.
+      - Identify and classify the malware family and its behavior.
+      - Notify OT engineers and relevant incident response teams.
+      - Inspect backups and initiate restoration if needed.
+      - Conduct root cause analysis and update firewall/IDS signatures.
+      - Apply patches and deploy threat hunting across ICS assets.
+
+  - input: How to respond to ransomware targeting HMI systems?
+    answer: |
+      - Shut down the affected HMI and disconnect it from the network.
+      - Alert ICS operators to switch to manual operations if safe.
+      - Engage forensic experts to analyze the malware and entry vector.
+      - Restore HMI from trusted backups after containment.
+      - Review authentication practices and disable unused services.
+      - Conduct a broader risk assessment across HMI and engineering workstations.
+
+  - input: ICS SOC response plan for DDoS on energy infrastructure.
+    answer: |
+      - Activate the incident response plan for critical infrastructure.
+      - Coordinate with ISPs and upstream providers to block attack traffic.
+      - Rate-limit external interfaces and use DDoS mitigation appliances.
+      - Monitor ICS traffic for abnormal patterns or service degradation.
+      - Isolate external-facing services from internal ICS components.
+      - After mitigation, conduct post-incident analysis and update defenses.
+
+  - input: What should I do if an attacker exfiltrates ICS sensor data?
+    answer: |
+      - Immediately isolate the compromised network segment.
+      - Initiate your incident response plan and notify ICS SOC teams.
+      - Identify the data exfiltration path and shut down outbound connections.
+      - Conduct forensic analysis to determine the scope of data loss.
+      - Notify legal/compliance teams for regulatory considerations.
+      - Implement tighter network segmentation, DLP tools, and review firewall rules.
+
+  - input: How do I isolate an infected ICS HMI during a malware outbreak?
+    answer: |
+      - Physically disconnect the HMI from the ICS network.
+      - Disable remote access, USB ports, and wireless interfaces.
+      - Notify operations and incident response teams immediately.
+      - Preserve forensic evidence with a disk image.
+      - Replace the infected HMI with a clean backup if available.
+      - Review network logs for lateral movement or persistence mechanisms.
+
+  - input: What steps should I take after detecting malware in ICS?
+    answer: |
+      - Contain the infection by segmenting or isolating affected nodes.
+      - Identify and classify the malware family and its behavior.
+      - Notify OT engineers and relevant incident response teams.
+      - Inspect backups and initiate restoration if needed.
+      - Conduct root cause analysis and update firewall/IDS signatures.
+      - Apply patches and deploy threat hunting across ICS assets.
+
+  - input: How to respond to ransomware targeting HMI systems?
+    answer: |
+      - Shut down the affected HMI and disconnect it from the network.
+      - Alert ICS operators to switch to manual operations if safe.
+      - Engage forensic experts to analyze the malware and entry vector.
+      - Restore HMI from trusted backups after containment.
+      - Review authentication practices and disable unused services.
+      - Conduct a broader risk assessment across HMI and engineering workstations.
+
+  - input: ICS SOC response plan for DDoS on energy infrastructure.
+    answer: |
+      - Activate the incident response plan for critical infrastructure.
+      - Coordinate with ISPs and upstream providers to block attack traffic.
+      - Rate-limit external interfaces and use DDoS mitigation appliances.
+      - Monitor ICS traffic for abnormal patterns or service degradation.
+      - Isolate external-facing services from internal ICS components.
+      - After mitigation, conduct post-incident analysis and update defenses.
+
+  - input: How can MALCOLM help investigate a recent ICS intrusion?
+    answer: |
+      - Import PCAPs into MALCOLM to extract and visualize network traffic.
+      - Use Arkime for timeline reconstruction and protocol analysis.
+      - Leverage Suricata logs to detect suspicious signatures and flows.
+      - Pivot on known IoCs (e.g., IPs, payload hashes) across traffic captures.
+      - Use the asset inventory to identify impacted ICS devices and communications.
+
+  - input: What steps should I take to analyze ICS malware behavior using MALCOLM?
+    answer: |
+      - Reconstruct infected host traffic using PCAPs from network taps.
+      - Load the PCAPs into MALCOLM and inspect flows using Zeek logs.
+      - Filter for protocols like Modbus, DNP3, or IEC-104 to detect manipulation.
+      - Use Suricata alerts and file extractions to identify payload behavior.
+      - Correlate with time-of-day and HMI interaction patterns for lateral movement.
+
+  - input: How do I detect abnormal PLC traffic using MALCOLM?
+    answer: |
+      - Apply protocol filters in Arkime for Modbus, CIP, or other ICS protocols.
+      - Look for command anomalies such as unexpected write requests.
+      - Use Zeek logs to inspect frequency and timing irregularities.
+      - Leverage Suricata signatures to flag known attack patterns.
+      - Cross-reference with baseline traffic to detect deviations in PLC logic changes.
+
+  - input: How should I use MALCOLM after containing a cyberattack on ICS?
+    answer: |
+      - Begin by loading captured network traffic (PCAPs) into MALCOLM.
+      - Use the dashboard to isolate timeframes of interest.
+      - Examine Suricata/Zeek logs to determine initial access vectors and lateral movement.
+      - Extract IoCs and share with threat intel platforms.
+      - Document findings for post-incident reports and ICS SOC tuning.
+
+  - input: How do I detect if ICS behavior deviates from the normal baseline?
+    answer: |
+      - Define behavioral baselines using historical ICS network and process data.
+      - Use statistical or ML-based anomaly detection on key metrics (e.g., Modbus command frequency, CPU usage).
+      - Deploy monitoring tools like MALCOLM or Zeek to log and visualize protocol behaviors.
+      - Trigger alerts if values exceed thresholds (e.g., unauthorized register writes or high command frequency).
+      - Correlate with asset inventory and known vulnerabilities for threat triage.
+
+  - input: What should I do if ICS network traffic exceeds baseline thresholds?
+    answer: |
+      - Immediately review traffic logs in MALCOLM or Suricata for unusual patterns.
+      - Confirm whether traffic spikes correlate with scheduled tasks or unsanctioned activity.
+      - If suspicious, isolate the impacted network segment and notify SOC.
+      - Run PCAP analysis to identify unauthorized protocol use or lateral movement.
+      - Review asset access logs and look for privilege escalation or unknown clients.
+
+  - input: How to automate incident response when anomaly exceeds ICS baseline?
+    answer: |
+      - Define precise baseline metrics using time-series or unsupervised learning models.
+      - Set dynamic thresholds and triggers using SIEM/SOAR platforms or Zeek scripts.
+      - On threshold breach, auto-trigger playbooks: segment traffic, alert operators, and capture PCAP.
+      - Integrate with asset management to verify what was accessed.
+      - Use historical incident data to generate automated recommendations.
+
+  - input: What’s a good strategy to differentiate normal vs malicious ICS write operations?
+    answer: |
+      - Build a baseline of expected Modbus/OPC-UA write operations for each PLC.
+      - Label write commands by asset context (e.g., valve control, setpoint change).
+      - Use Suricata or custom Zeek scripts to monitor and flag unusual write targets or timing.
+      - Employ whitelist-based or behavior anomaly detection to distinguish abuse.
+      - Use MALCOLM to correlate write ops with new external connections or tool activity.
+
+  - input: What are effective thresholds to detect anomalies in ICS HMI behavior?
+    answer: |
+      - Monitor user logins, HMI screen switching frequency, and remote access patterns.
+      - Set thresholds for abnormal spikes (e.g., more than 10 screen changes per minute).
+      - Combine thresholds with contextual factors (e.g., operator schedule, shift time).
+      - Correlate with asset states—sudden state changes may indicate manipulation.
+      - Trigger alerts and isolate HMI if anomalies coincide with malware IoCs.
+
+  - input: How can I build a baseline model for ICS network behavior?
+    answer: |
+      - Capture traffic during stable operation periods over several weeks.
+      - Extract key features: source IP, protocol, byte count, command types.
+      - Use tools like Zeek + MALCOLM to visualize and categorize flows.
+      - Apply clustering or seasonal analysis to identify normal variations.
+      - Store baseline profiles per zone/asset and retrain periodically.
+
+  - input: If an anomaly is detected in ICS traffic, what response steps should I take?
+    answer: |
+      - Validate the anomaly by comparing against historical baseline and operator schedule.
+      - If confirmed suspicious, segment the network zone and contain the affected host.
+      - Initiate packet capture for postmortem.
+      - Check for known IoCs or signatures in Suricata logs.
+      - Notify response teams and document the detection for SIEM enrichment.
+
+  - input: How to respond if ICS protocols are seen on unexpected ports or devices?
+    answer: |
+      - Block the unexpected port/device using firewalls or NAC policies.
+      - Use MALCOLM to identify when and how the communication began.
+      - Check asset inventory—rogue devices may indicate lateral movement or shadow systems.
+      - Conduct forensic imaging of the suspicious asset.
+      - Alert OT operators and schedule ICS protocol hardening review.
+
+  - input: What steps should I automate if PLC command rates spike above expected levels?
+    answer: |
+      - Define rate thresholds per PLC based on historical trends.
+      - Trigger PCAP capture and Suricata rule logging on threshold breach.
+      - Auto-quarantine or alert depending on severity and context.
+      - Analyze command types—e.g., unauthorized writes or reboots.
+      - Notify ICS operators and disable remote engineering access until cleared.
+
+  - input: How do I use anomaly detection with MALCOLM for zero-day ICS threats?
+    answer: |
+      - Monitor for rare combinations of protocol usage and endpoint behavior.
+      - Use Zeek + Suricata logs to analyze control traffic frequency and size anomalies.
+      - Detect sudden asset communication with unknown destinations or over unexpected protocols.
+      - Visualize behavioral shifts in Arkime over time.
+      - Document suspicious events and update alert rules with threat hunting intel.
+
+  - input: How should I respond to suspicious Modbus write operations?
+    answer: |
+      - Review logs for Function Code 5, 6, or 16 targeting unexpected coil/register addresses.
+      - Compare write addresses to normal HMI commands or automation logic.
+      - Isolate the source IP and block further Modbus traffic from it.
+      - Capture network packets and preserve evidence using PCAP.
+      - Alert OT operators to confirm system integrity and disable remote engineering access if necessary.
+
+  - input: What steps to take if IEC-104 messages are sent from unauthorized devices?
+    answer: |
+      - Immediately block IEC-104 traffic from unrecognized IPs.
+      - Use MALCOLM or Wireshark to analyze ASDUs and extract source identifiers.
+      - Check firewall rules for missing ingress/egress filters.
+      - Notify ICS engineers and inspect RTU logs for unauthorized command execution.
+      - Conduct asset inventory validation to detect rogue or cloned devices.
+
+  - input: What should I do if ICS traffic shows abnormal DNP3 function usage?
+    answer: |
+      - Analyze whether the DNP3 function codes (e.g., unsolicited responses, function code 2/3 spikes) deviate from normal polling behavior.
+      - Use Zeek logs or Suricata alerts to identify the source and context.
+      - Isolate the affected segment and notify the SOC and SCADA operators.
+      - If false relay triggers are suspected, switch to manual control temporarily.
+      - Audit authentication settings on DNP3-enabled devices and deploy protocol hardening.
+
+  - input: How to investigate CIP commands causing unexpected actuator behavior?
+    answer: |
+      - Use MALCOLM or Arkime to filter for CIP protocol usage and extract suspicious commands (e.g., "Forward_Open").
+      - Trace the source MAC/IP and check for abnormal engineering tool emulation.
+      - Engage PLC vendors or integrators to decode proprietary CIP messages if needed.
+      - Perform device integrity checks and scan for malware persistence.
+      - Lock down the engineering workstation and require multi-factor access for programming devices.
+
+  - input: What actions to take after detecting malformed Modbus function codes?
+    answer: |
+      - Capture and analyze malformed packets to assess potential fuzzing or DoS attacks.
+      - Implement strict packet inspection rules using Suricata or firewall ACLs.
+      - Review firmware logs for exception reports or abnormal reset events.
+      - Notify vendors if proprietary or undocumented behavior is involved.
+      - Patch vulnerable devices and rotate device credentials if exposed.
+
+  - input: What if an attacker sends a sudden burst of Modbus write commands?
+    answer: |
+      - Immediately disconnect the source system (likely a compromised engineering tool).
+      - Alert field operators and enter manual override mode if necessary.
+      - Begin forensic imaging of the attacker system and export PCAP logs.
+      - Use known-good backups to restore affected PLCs.
+      - Apply network rate-limiting rules for ICS protocol commands going forward.
+
+  - input: How can I use MALCOLM to detect abnormal Modbus write commands targeting PLCs?
+    answer: |
+      - Load PCAPs into MALCOLM’s Arkime interface.
+      - Filter traffic by TCP port 502 to isolate Modbus communications.
+      - Inspect function codes like 0x05, 0x06, or 0x10 for unauthorized write attempts.
+      - Use Zeek logs to trace command sequences and frequency patterns.
+      - Set alerts for Modbus write commands outside normal schedules or to unauthorized registers.
+
+  - input: What steps should I follow in MALCOLM to investigate suspicious boundary function changes during ICS compromise?
+    answer: |
+      - Begin by analyzing Suricata alerts and Zeek logs for protocol-specific anomalies.
+      - Identify any Modbus/DNP3/OPC traffic with rare or out-of-baseline function codes.
+      - Use Arkime to reconstruct session timelines and correlate with process logic.
+      - Review asset communication maps for deviations in boundary devices.
+      - Document observed function changes and escalate to OT/ICS engineers for validation.

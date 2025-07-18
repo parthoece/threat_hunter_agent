@@ -1,0 +1,262 @@
+2025-07-17 23:33:19,647 - ERROR - Agent execution failed
+Traceback (most recent call last):
+  File "/Users/partho/Documents/AI/ics_incident_assistant/app_agent.py", line 79, in run_agentic_tool
+    return agent.run(query)
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain_core/_api/deprecation.py", line 189, in warning_emitting_wrapper
+    return wrapped(*args, **kwargs)
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/chains/base.py", line 603, in run
+    return self(args[0], callbacks=callbacks, tags=tags, metadata=metadata)[
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain_core/_api/deprecation.py", line 189, in warning_emitting_wrapper
+    return wrapped(*args, **kwargs)
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/chains/base.py", line 386, in __call__
+    return self.invoke(
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/chains/base.py", line 167, in invoke
+    raise e
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/chains/base.py", line 157, in invoke
+    self._call(inputs, run_manager=run_manager)
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/agents/agent.py", line 1620, in _call
+    next_step_output = self._take_next_step(
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/agents/agent.py", line 1326, in _take_next_step
+    [
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/agents/agent.py", line 1326, in <listcomp>
+    [
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/agents/agent.py", line 1411, in _iter_next_step
+    yield self._perform_agent_action(
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/agents/agent.py", line 1433, in _perform_agent_action
+    observation = tool.run(
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain_core/tools/base.py", line 883, in run
+    raise error_to_raise
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain_core/tools/base.py", line 852, in run
+    response = context.run(self._run, *tool_args, **tool_kwargs)
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain_core/tools/simple.py", line 105, in _run
+    return self.func(*args, **kwargs)
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain_core/_api/deprecation.py", line 189, in warning_emitting_wrapper
+    return wrapped(*args, **kwargs)
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/chains/base.py", line 598, in run
+    _output_key = self._run_output_key
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/chains/base.py", line 546, in _run_output_key
+    raise ValueError(
+ValueError: `run` not supported when there is not exactly one output key. Got ['result', 'source_documents'].
+2025-07-17 23:33:34,845 - ERROR - Agent execution failed
+Traceback (most recent call last):
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/agents/agent.py", line 1354, in _iter_next_step
+    output = self._action_agent.plan(
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/agents/agent.py", line 801, in plan
+    return self.output_parser.parse(full_output)
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/agents/mrkl/output_parser.py", line 88, in parse
+    raise OutputParserException(
+langchain_core.exceptions.OutputParserException: Could not parse LLM output: ` To find out the most common ICS (Industrial Control System) threat actors, I need to access information about cybersecurity incidents related to ICS. I will use the ResponderPlanner tool for this purpose.
+
+Action: ResponderPlanner("ICS threat actors")`
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE 
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/partho/Documents/AI/ics_incident_assistant/app_agent.py", line 79, in run_agentic_tool
+    return agent.run(query)
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain_core/_api/deprecation.py", line 189, in warning_emitting_wrapper
+    return wrapped(*args, **kwargs)
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/chains/base.py", line 603, in run
+    return self(args[0], callbacks=callbacks, tags=tags, metadata=metadata)[
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain_core/_api/deprecation.py", line 189, in warning_emitting_wrapper
+    return wrapped(*args, **kwargs)
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/chains/base.py", line 386, in __call__
+    return self.invoke(
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/chains/base.py", line 167, in invoke
+    raise e
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/chains/base.py", line 157, in invoke
+    self._call(inputs, run_manager=run_manager)
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/agents/agent.py", line 1620, in _call
+    next_step_output = self._take_next_step(
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/agents/agent.py", line 1326, in _take_next_step
+    [
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/agents/agent.py", line 1326, in <listcomp>
+    [
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/agents/agent.py", line 1365, in _iter_next_step
+    raise ValueError(
+ValueError: An output parsing error occurred. In order to pass this error back to the agent and have it try again, pass `handle_parsing_errors=True` to the AgentExecutor. This is the error: Could not parse LLM output: ` To find out the most common ICS (Industrial Control System) threat actors, I need to access information about cybersecurity incidents related to ICS. I will use the ResponderPlanner tool for this purpose.
+
+Action: ResponderPlanner("ICS threat actors")`
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE 
+2025-07-17 23:33:44,877 - ERROR - Agent execution failed
+Traceback (most recent call last):
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/agents/agent.py", line 1354, in _iter_next_step
+    output = self._action_agent.plan(
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/agents/agent.py", line 801, in plan
+    return self.output_parser.parse(full_output)
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/agents/mrkl/output_parser.py", line 88, in parse
+    raise OutputParserException(
+langchain_core.exceptions.OutputParserException: Could not parse LLM output: ` To find the most common ICS (Industrial Control System) threat actors, I need to summarize information about them.
+
+Action: Summarizer("Most common ICS threat actors")`
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE 
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/partho/Documents/AI/ics_incident_assistant/app_agent.py", line 79, in run_agentic_tool
+    return agent.run(query)
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain_core/_api/deprecation.py", line 189, in warning_emitting_wrapper
+    return wrapped(*args, **kwargs)
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/chains/base.py", line 603, in run
+    return self(args[0], callbacks=callbacks, tags=tags, metadata=metadata)[
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain_core/_api/deprecation.py", line 189, in warning_emitting_wrapper
+    return wrapped(*args, **kwargs)
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/chains/base.py", line 386, in __call__
+    return self.invoke(
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/chains/base.py", line 167, in invoke
+    raise e
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/chains/base.py", line 157, in invoke
+    self._call(inputs, run_manager=run_manager)
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/agents/agent.py", line 1620, in _call
+    next_step_output = self._take_next_step(
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/agents/agent.py", line 1326, in _take_next_step
+    [
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/agents/agent.py", line 1326, in <listcomp>
+    [
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/agents/agent.py", line 1365, in _iter_next_step
+    raise ValueError(
+ValueError: An output parsing error occurred. In order to pass this error back to the agent and have it try again, pass `handle_parsing_errors=True` to the AgentExecutor. This is the error: Could not parse LLM output: ` To find the most common ICS (Industrial Control System) threat actors, I need to summarize information about them.
+
+Action: Summarizer("Most common ICS threat actors")`
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE 
+2025-07-17 23:33:59,140 - ERROR - Agent execution failed
+Traceback (most recent call last):
+  File "/Users/partho/Documents/AI/ics_incident_assistant/app_agent.py", line 79, in run_agentic_tool
+    return agent.run(query)
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain_core/_api/deprecation.py", line 189, in warning_emitting_wrapper
+    return wrapped(*args, **kwargs)
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/chains/base.py", line 603, in run
+    return self(args[0], callbacks=callbacks, tags=tags, metadata=metadata)[
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain_core/_api/deprecation.py", line 189, in warning_emitting_wrapper
+    return wrapped(*args, **kwargs)
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/chains/base.py", line 386, in __call__
+    return self.invoke(
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/chains/base.py", line 167, in invoke
+    raise e
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/chains/base.py", line 157, in invoke
+    self._call(inputs, run_manager=run_manager)
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/agents/agent.py", line 1620, in _call
+    next_step_output = self._take_next_step(
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/agents/agent.py", line 1326, in _take_next_step
+    [
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/agents/agent.py", line 1326, in <listcomp>
+    [
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/agents/agent.py", line 1411, in _iter_next_step
+    yield self._perform_agent_action(
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/agents/agent.py", line 1433, in _perform_agent_action
+    observation = tool.run(
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain_core/tools/base.py", line 883, in run
+    raise error_to_raise
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain_core/tools/base.py", line 852, in run
+    response = context.run(self._run, *tool_args, **tool_kwargs)
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain_core/tools/simple.py", line 105, in _run
+    return self.func(*args, **kwargs)
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain_core/_api/deprecation.py", line 189, in warning_emitting_wrapper
+    return wrapped(*args, **kwargs)
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/chains/base.py", line 598, in run
+    _output_key = self._run_output_key
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/chains/base.py", line 546, in _run_output_key
+    raise ValueError(
+ValueError: `run` not supported when there is not exactly one output key. Got ['result', 'source_documents'].
+2025-07-17 23:44:49,208 - ERROR - Agent execution failed
+Traceback (most recent call last):
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/agents/agent.py", line 1354, in _iter_next_step
+    output = self._action_agent.plan(
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/agents/agent.py", line 801, in plan
+    return self.output_parser.parse(full_output)
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/agents/mrkl/output_parser.py", line 79, in parse
+    raise OutputParserException(
+langchain_core.exceptions.OutputParserException: Could not parse LLM output: ` It seems that the provided tools do not include a way to search for specific steps in the incident response for a DDoS attack. However, I can provide you with a general outline of the steps involved in responding to a DDoS attack based on common practices:
+
+1. Detect and identify the attack: Analyze network traffic patterns and logs to detect any unusual activity that may indicate a DDoS attack. Identify the source and type of the attack.
+2. Contain the attack: Isolate the affected systems and network segments to prevent the attack from spreading further. This can be done by implementing firewalls, access controls, and traffic filtering rules.
+3. Mitigate the attack: Utilize various mitigation techniques such as deploying load balancers, content delivery networks (CDNs), or engaging a DDoS protection service to manage the attack and reduce its impact on your network.
+4. Analyze the attack: Investigate the root cause of the attack, identify vulnerabilities in your network that were exploited, and determine whether any data was compromised during the attack.
+5. Recover from the attack: Once the attack is contained and mitigated, take steps to restore normal operations, patch any identified vulnerabilities, and strengthen your network defenses to prevent future attacks.
+6. Document and report: Record the details of the attack, including its impact, cause, and response, for future reference and analysis. If appropriate, report the incident to relevant authorities or service providers.`
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE 
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/partho/Documents/AI/ics_incident_assistant/app_agent.py", line 80, in run_agentic_tool
+    return agent.run(query)
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain_core/_api/deprecation.py", line 189, in warning_emitting_wrapper
+    return wrapped(*args, **kwargs)
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/chains/base.py", line 603, in run
+    return self(args[0], callbacks=callbacks, tags=tags, metadata=metadata)[
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain_core/_api/deprecation.py", line 189, in warning_emitting_wrapper
+    return wrapped(*args, **kwargs)
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/chains/base.py", line 386, in __call__
+    return self.invoke(
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/chains/base.py", line 167, in invoke
+    raise e
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/chains/base.py", line 157, in invoke
+    self._call(inputs, run_manager=run_manager)
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/agents/agent.py", line 1620, in _call
+    next_step_output = self._take_next_step(
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/agents/agent.py", line 1326, in _take_next_step
+    [
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/agents/agent.py", line 1326, in <listcomp>
+    [
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/agents/agent.py", line 1365, in _iter_next_step
+    raise ValueError(
+ValueError: An output parsing error occurred. In order to pass this error back to the agent and have it try again, pass `handle_parsing_errors=True` to the AgentExecutor. This is the error: Could not parse LLM output: ` It seems that the provided tools do not include a way to search for specific steps in the incident response for a DDoS attack. However, I can provide you with a general outline of the steps involved in responding to a DDoS attack based on common practices:
+
+1. Detect and identify the attack: Analyze network traffic patterns and logs to detect any unusual activity that may indicate a DDoS attack. Identify the source and type of the attack.
+2. Contain the attack: Isolate the affected systems and network segments to prevent the attack from spreading further. This can be done by implementing firewalls, access controls, and traffic filtering rules.
+3. Mitigate the attack: Utilize various mitigation techniques such as deploying load balancers, content delivery networks (CDNs), or engaging a DDoS protection service to manage the attack and reduce its impact on your network.
+4. Analyze the attack: Investigate the root cause of the attack, identify vulnerabilities in your network that were exploited, and determine whether any data was compromised during the attack.
+5. Recover from the attack: Once the attack is contained and mitigated, take steps to restore normal operations, patch any identified vulnerabilities, and strengthen your network defenses to prevent future attacks.
+6. Document and report: Record the details of the attack, including its impact, cause, and response, for future reference and analysis. If appropriate, report the incident to relevant authorities or service providers.`
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE 
+2025-07-17 23:45:32,843 - ERROR - Agent execution failed
+Traceback (most recent call last):
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/agents/agent.py", line 1354, in _iter_next_step
+    output = self._action_agent.plan(
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/agents/agent.py", line 801, in plan
+    return self.output_parser.parse(full_output)
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/agents/mrkl/output_parser.py", line 88, in parse
+    raise OutputParserException(
+langchain_core.exceptions.OutputParserException: Could not parse LLM output: ` It appears there's no available tool named `ResponderPlanner`. I will provide a general incident response for a DDoS attack based on common best practices.
+
+Question: What's the incident response if the network is affected by a Distributed Denial of Service (DDoS) attack?
+Thought: In this case, I will suggest some general actions to follow during a DDoS attack.
+
+Action: Create an Incident Response Plan (IRP)`
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE 
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/partho/Documents/AI/ics_incident_assistant/app_agent.py", line 80, in run_agentic_tool
+    return agent.run(query)
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain_core/_api/deprecation.py", line 189, in warning_emitting_wrapper
+    return wrapped(*args, **kwargs)
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/chains/base.py", line 603, in run
+    return self(args[0], callbacks=callbacks, tags=tags, metadata=metadata)[
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain_core/_api/deprecation.py", line 189, in warning_emitting_wrapper
+    return wrapped(*args, **kwargs)
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/chains/base.py", line 386, in __call__
+    return self.invoke(
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/chains/base.py", line 167, in invoke
+    raise e
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/chains/base.py", line 157, in invoke
+    self._call(inputs, run_manager=run_manager)
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/agents/agent.py", line 1620, in _call
+    next_step_output = self._take_next_step(
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/agents/agent.py", line 1326, in _take_next_step
+    [
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/agents/agent.py", line 1326, in <listcomp>
+    [
+  File "/Users/partho/Documents/AI/ics_incident_assistant/icsenv/lib/python3.9/site-packages/langchain/agents/agent.py", line 1365, in _iter_next_step
+    raise ValueError(
+ValueError: An output parsing error occurred. In order to pass this error back to the agent and have it try again, pass `handle_parsing_errors=True` to the AgentExecutor. This is the error: Could not parse LLM output: ` It appears there's no available tool named `ResponderPlanner`. I will provide a general incident response for a DDoS attack based on common best practices.
+
+Question: What's the incident response if the network is affected by a Distributed Denial of Service (DDoS) attack?
+Thought: In this case, I will suggest some general actions to follow during a DDoS attack.
+
+Action: Create an Incident Response Plan (IRP)`
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE 
