@@ -109,10 +109,9 @@ python app_agent.py
 
 Visit `http://localhost:7860`
 
-# Test & Push to Git
 ```bash
+# Test & Push to Git
 python tests/test_app.py
-
 
 # Now start pushing to git
 git init
@@ -146,7 +145,7 @@ git reflog expire --expire=now --all
 git gc --prune=now --aggressive
 
 git push --force origin main
-
+```
 
 ---
 
@@ -223,17 +222,17 @@ Example prompts:
 
 **1. Search Interface**  
 <div align="center">
-  <img src="assets/search_incident.png" alt="Search View" width="400">
+  <img src="assets/search_incident.png" alt="Search View" width="500">
 </div>
 
 **2. Response Planner Output**  
 <div align="center">
-  <img src="assets/responder_plan.png" alt="Response Planner" width="400">
+  <img src="assets/responder_plan.png" alt="Response Planner" width="500">
 </div>
 
 **3. Summary Example (Triton ICS)**  
 <div align="center">
-  <img src="assets/summarizer.png" alt="Summarizer" width="400">
+  <img src="assets/summarizer.png" alt="Summarizer" width="500">
 </div>
 
 
