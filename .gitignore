@@ -211,3 +211,4 @@ __marimo__/
 #  For example, if you have a local configuration file that should not be shared:
 # local_config.py
 icsenv/
+icsenv/
