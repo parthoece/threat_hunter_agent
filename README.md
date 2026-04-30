@@ -1,4 +1,4 @@
-# 🛡️ ICS Incident Response Assistant (Agentic, Local LLM – Mistral via Ollama)
+#  ICS Incident Response Assistant (Agentic, Local LLM – Mistral via Ollama)
 
 A lightweight, fully offline, agent-based AI assistant for ICS threat hunting and incident response. This system runs entirely on local CPU hardware, leverages Mistral via Ollama for LLM reasoning, and supports modular planning and search workflows using real-world ICS incident datasets.
 
@@ -274,4 +274,4 @@ MIT License
 ### Author
 
 Built by **Partho Adhikari**  
-📧 [parthoece23@gmail.com](mailto:parthoece23@gmail.com)
+ [parthoece23@gmail.com](mailto:parthoece23@gmail.com)
