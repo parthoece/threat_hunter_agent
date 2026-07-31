@@ -271,7 +271,4 @@ MIT License
 
 ---
 
-### Author
 
-Built by **Partho Adhikari**  
- [parthoece23@gmail.com](mailto:parthoece23@gmail.com)
